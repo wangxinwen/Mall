@@ -16,3 +16,6 @@
 
 ### Server
 * Tomcat 8
+
+### Author
+* <a target="_blank" href="http://roysu.tw/">Roy Su</a>
