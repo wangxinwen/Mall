@@ -1,10 +1,12 @@
 package tw.roysu.mall.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import tw.roysu.mall.constant.View;
+import tw.roysu.mall.form.RegisterForm;
 
 /**
  * 註冊Controller
@@ -16,7 +18,8 @@ public class RegisterController {
 	 * 註冊頁
 	 */
 	@RequestMapping(value = "/Register", method = RequestMethod.GET)
-	public String registerPage() {
+	public String registerPage(Model model) {
+		model.addAttribute("form", new RegisterForm());
 		return View.REGISTER;
 	}
 
@@ -24,7 +27,7 @@ public class RegisterController {
 	 * 註冊
 	 */
 	@RequestMapping(value = "/Register", method = RequestMethod.POST)
-	public String register() {
+	public String register(Model model, RegisterForm form) {
 		// 功能待完成
 		return "";
 	}
