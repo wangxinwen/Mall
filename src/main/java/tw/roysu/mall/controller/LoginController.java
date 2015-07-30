@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * 會員Controller
+ * 登入Controller
  */
 @Controller
-public class UserController {
+public class LoginController {
 
 	/**
 	 * 登入頁
