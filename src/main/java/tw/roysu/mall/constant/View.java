@@ -14,5 +14,10 @@ public class View {
 	 * 登入
 	 */
 	public static final String LOGIN = "user/login";
+	
+	/** 
+	 * 註冊
+	 */
+	public static final String REGISTER = "user/register";
 
 }
