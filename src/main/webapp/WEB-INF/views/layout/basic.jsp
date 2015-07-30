@@ -28,9 +28,9 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
-                <a class="brand" href="#">購物中心</a>
+                <a class="brand" href="/">購物中心</a>
                 <div class="nav-collapse collapse">
-                    <p class="navbar-text pull-right"><a href="#" class="navbar-link">登入</a>
+                    <p class="navbar-text pull-right"><a href="/Login" class="navbar-link">登入</a>
                 </div>
             </div>
         </div>
