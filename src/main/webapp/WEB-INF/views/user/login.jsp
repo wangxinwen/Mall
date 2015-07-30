@@ -27,8 +27,8 @@
 					<div class="control-group">
 						<div class="controls">
 							<button type="submit" class="btn btn-primary">登入</button>
-							<button type="button" class="btn">取消</button>
-							<button type="button" class="btn btn-info">註冊</button>
+							<button type="button" class="btn" id="btn-cancel">取消</button>
+							<button type="button" class="btn btn-info" id="btn-register">註冊</button>
 						</div>
 					</div>
 					<div class="control-group">

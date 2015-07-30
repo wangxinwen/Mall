@@ -40,7 +40,10 @@
         	<decorator:body/>
         </div>
     </div>
+    
+    <script src="/resources/jquery/jquery-1.11.3.js"></script>
     <script src="/resources/bootstrap/bootstrap.js"></script>
+    <script src="/resources/js/common/redirect.js"></script>
 </body>
 
 </html>
