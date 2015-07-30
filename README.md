@@ -14,6 +14,9 @@
 * Spring 4
 * Bootstarp 2
 
+### Web-page layout
+* SiteMesh 2
+
 ### Server
 * Tomcat 8
 
