@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title><decorator:title/></title>
+    <title><decorator:title /></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -15,8 +15,8 @@
     <link href="/resources/css/home.css" rel="stylesheet">
     <link href="/resources/bootstrap/bootstrap-responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
-    	<script src=~/Scripts/BS2/html5shiv.js></script>
-    <![endif]-->
+	   <script src=~/Scripts/BS2/html5shiv.js></script>
+	<![endif]-->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/resources/bootstrap/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/resources/bootstrap/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/resources/bootstrap/apple-touch-icon-72-precomposed.png">
@@ -30,17 +30,19 @@
             <div class="container-fluid">
                 <a class="brand" href="/">購物中心</a>
                 <div class="nav-collapse collapse">
-                    <p class="navbar-text pull-right"><a href="/Login" class="navbar-link">登入</a>
+                    <p class="navbar-text pull-right">
+                        <a href="/Login" class="navbar-link">登入</a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row-fluid">
-        	<decorator:body/>
+            <decorator:body />
         </div>
     </div>
-    
+
     <script src="/resources/jquery/jquery-1.11.3.js"></script>
     <script src="/resources/bootstrap/bootstrap.js"></script>
     <script src="/resources/js/common/redirect.js"></script>
