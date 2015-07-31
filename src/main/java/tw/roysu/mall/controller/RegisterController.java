@@ -28,6 +28,10 @@ public class RegisterController {
 	 */
 	@RequestMapping(value = "/Register", method = RequestMethod.POST)
 	public String register(Model model, RegisterForm form) {
+		if (!form.validate()) {
+			model.addAttribute("form", form);
+			return View.REGISTER;
+		}
 		// 功能待完成
 		return "";
 	}
