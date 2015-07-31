@@ -13,73 +13,73 @@ import javax.persistence.Id;
 @Entity
 public class User implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
-	/** 
-	 * 會員編號
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	
-	/** 
-	 * 帳號
-	 */
-	private String account;
+    private static final long serialVersionUID = 1L;
 
-	/** 
-	 * 密碼
-	 */
-	private String password;
+    /**
+     * 會員編號
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
-	/** 
-	 * 信箱
-	 */
-	private String email;
+    /**
+     * 帳號
+     */
+    private String account;
 
-	/** 
-	 * 暱稱
-	 */
-	private String name;
+    /**
+     * 密碼
+     */
+    private String password;
 
-	public int getId() {
-		return id;
-	}
+    /**
+     * 信箱
+     */
+    private String email;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    /**
+     * 暱稱
+     */
+    private String name;
 
-	public String getAccount() {
-		return account;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setAccount(String account) {
-		this.account = account;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getAccount() {
+        return account;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setAccount(String account) {
+        this.account = account;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

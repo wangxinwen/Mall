@@ -12,20 +12,20 @@ import tw.roysu.mall.constant.View;
 @Controller
 public class LoginController {
 
-	/**
-	 * 登入頁
-	 */
-	@RequestMapping(value = "/Login", method = RequestMethod.GET)
-	public String loginPage() {
-		return View.LOGIN;
-	}
+    /**
+     * 登入頁
+     */
+    @RequestMapping(value = "/Login", method = RequestMethod.GET)
+    public String loginPage() {
+        return View.LOGIN;
+    }
 
-	/**
-	 * 登入
-	 */
-	@RequestMapping(value = "/Login", method = RequestMethod.POST)
-	public String login() {
-		// 功能待完成
-		return "";
-	}
+    /**
+     * 登入
+     */
+    @RequestMapping(value = "/Login", method = RequestMethod.POST)
+    public String login() {
+        // 功能待完成
+        return "";
+    }
 }
