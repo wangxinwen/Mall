@@ -20,4 +20,9 @@ public class View {
      */
     public static final String REGISTER = "user/register";
 
+    /**
+     * 成功
+     */
+    public static final String SUCCESS = "common/success";
+
 }

@@ -1,9 +1,13 @@
 package tw.roysu.mall.form;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 
+import tw.roysu.mall.entity.User;
+
 /**
- * 註冊表單<br><br>
+ * 註冊表單<br>
+ * <br>
  * 
  * 驗證規則如下：<br>
  * 帳號不能為空, 長度要介於6-20<br>
@@ -77,6 +81,20 @@ public class RegisterForm extends BaseForm {
             super.addErrMsg("暱稱長度不能大於20哦！");
         }
         return super.validateResult();
+    }
+
+    /**
+     * 將{@link RegisterForm}轉為{@link User}
+     * 
+     * @return {@link User}
+     */
+    public User toUser() {
+        User user = new User();
+        user.setAccount(this.account);
+        user.setPassword(DigestUtils.md5Hex(this.password));
+        user.setEmail(this.email);
+        user.setName(this.name);
+        return user;
     }
 
     public String getAccount() {
