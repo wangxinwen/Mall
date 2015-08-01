@@ -18,5 +18,15 @@ public enum DataCheckExceptionEnum {
     /**
      * 暱稱重覆
      */
-    REPEAT_NAME
+    REPEAT_NAME,
+    
+    /**
+     * 查無此帳號
+     */
+    FIND_NOT_ACCOUNT,
+    
+    /**
+     * 密碼錯誤
+     */
+    PASSWORD_WRONG
 }

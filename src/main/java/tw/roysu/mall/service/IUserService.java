@@ -18,5 +18,19 @@ public interface IUserService {
      * @throws DataCheckException
      */
     public void register(User user) throws DataCheckException;
+    
+    /**
+     * 會員登入<br><br>
+     * 
+     * 如果查無此帳號或密碼錯誤會拋出例外
+     * 
+     * @param account
+     *        帳號
+     * @param password
+     *        密碼
+     * @return {@link User}
+     * @throws DataCheckException
+     */
+    public User login(String account, String password) throws DataCheckException;
 
 }

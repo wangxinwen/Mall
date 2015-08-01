@@ -74,4 +74,18 @@ public class UserService implements IUserService {
         return userDao.findByName(name) != null;
     }
 
+    @Override
+    public User login(String account, String password) throws DataCheckException {
+        // 驗證是有否此帳號
+        User user = userDao.findByAccount(account);
+        if (user == null) {
+            throw new DataCheckException(DataCheckExceptionEnum.FIND_NOT_ACCOUNT);
+        }
+        // 驗證密碼是否正確
+        if (!user.passwordCorrect(password)) {
+            throw new DataCheckException(DataCheckExceptionEnum.PASSWORD_WRONG);
+        }
+        return user;
+    }
+
 }

@@ -40,6 +40,12 @@ public class DataCheckException extends Exception {
         case REPEAT_NAME:
             this.msg = "這暱稱被別人註冊囉，請您更換一個暱稱。";
             break;
+        case FIND_NOT_ACCOUNT:
+            this.msg = "查無此帳號，請確認後再次輸入。";
+            break;
+        case PASSWORD_WRONG:
+            this.msg = "密碼錯誤，請確認後再次輸入。";
+            break;
         default:
             this.msg = "資料驗證錯誤。";
             break;

@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 /**
  * 會員
  */
@@ -41,6 +43,18 @@ public class User implements Serializable {
      * 暱稱
      */
     private String name;
+    
+    /**
+     * 驗證密碼是否正確
+     * 
+     * @param password
+     *        密碼
+     * @return 正確回傳true, 錯誤回傳false
+     */
+    public boolean passwordCorrect(String password) {
+        String md5Password = DigestUtils.md5Hex(password);
+        return this.password.equals(md5Password);
+    }
 
     public int getId() {
         return id;
