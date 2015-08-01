@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-<title>購物中心</title>
+    <title>購物中心</title>
 </head>
 
 <body>

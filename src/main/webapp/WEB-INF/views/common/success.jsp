@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en">
 
 <head>
     <title>${msg}- 購物中心</title>

@@ -39,7 +39,7 @@ public class UserService implements IUserService {
      * 有通過回傳true, 沒有回傳false
      * 
      * @param account
-     *            帳號
+     *        帳號
      * @return true or false
      */
     private boolean hasSameAccount(String account) {
@@ -53,7 +53,7 @@ public class UserService implements IUserService {
      * 有通過回傳true, 沒有回傳false
      * 
      * @param email
-     *            信箱
+     *        信箱
      * @return true or false
      */
     private boolean hasSameEmail(String email) {
@@ -67,7 +67,7 @@ public class UserService implements IUserService {
      * 有通過回傳true, 沒有回傳false
      * 
      * @param name
-     *            暱稱
+     *        暱稱
      * @return true or false
      */
     private boolean hasSameName(String name) {

@@ -7,7 +7,7 @@
 <html lang="en">
 
 <head>
-<title>註冊 - 購物中心</title>
+    <title>註冊 - 購物中心</title>
 </head>
 
 <body>
