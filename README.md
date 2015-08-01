@@ -5,13 +5,14 @@
 <br />
 
 ### Version
-0.1
+0.2
 
 ### Language
 * Java 8
 
 ### Framework
 * Spring 4
+* Hibernate 4
 * Bootstarp 2
 
 ### Web-page layout
@@ -19,6 +20,9 @@
 
 ### Server
 * Tomcat 8
+
+### Database
+* MySQL
 
 ### Author
 * <a target="_blank" href="http://roysu.tw/">Roy Su</a>
