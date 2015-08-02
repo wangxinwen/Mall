@@ -55,6 +55,18 @@ public class User implements Serializable {
         String md5Password = DigestUtils.md5Hex(password);
         return this.password.equals(md5Password);
     }
+    
+    /**
+     * 此會員是否擁有管理者權限<br><br>
+     * 
+     * 備註：目前設定第1個註冊網站的會員會成為管理者, <br>
+     * 日後此部份需要可以再撰寫賦予管理者權限的功能
+     * 
+     * @return 有回傳true, 沒有回傳false
+     */
+    public boolean isAdmin() {
+        return this.id == 1;
+    }
 
     public int getId() {
         return id;

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,11 +29,24 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
+                <c:if test="${sessionScope.validUser.admin}">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </c:if>
                 <a class="brand" href="/">購物中心</a>
                 <div class="nav-collapse collapse">
                     <p class="navbar-text pull-right">
                         <a href="/Login" class="navbar-link">登入</a>
                     </p>
+                    <%-- 管理者才顯示管理後台連接 --%>
+                    <c:if test="${sessionScope.validUser.admin}">
+                        <ul class="nav">
+                            <li><a href="#">管理後台</a>
+                        </ul>
+                    </c:if>
                 </div>
             </div>
         </div>
