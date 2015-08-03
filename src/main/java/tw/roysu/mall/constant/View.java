@@ -30,4 +30,14 @@ public class View {
      */
     public static final String ADMIN_HOME = "admin/home";
 
+    /**
+     * 管理後台－商品類別-列表
+     */
+    public static final String ADMIN_CATEGORY_LIST = "admin/category/list";
+
+    /**
+     * 管理後台－商品類別-新增
+     */
+    public static final String ADMIN_CATEGORY_ADD = "admin/category/add";
+
 }

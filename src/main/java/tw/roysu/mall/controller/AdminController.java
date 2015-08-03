@@ -20,5 +20,21 @@ public class AdminController {
     public String home() {
         return View.ADMIN_HOME;
     }
+    
+    /**
+     * 商品類別 - 列表頁
+     */
+    @RequestMapping(value = "/ListCategory", method = RequestMethod.GET)
+    public String listCategory() {
+        return View.ADMIN_CATEGORY_LIST;
+    }
+    
+    /**
+     * 商品類別 - 新增頁
+     */
+    @RequestMapping(value = "/AddCategory", method = RequestMethod.GET)
+    public String addCategory() {
+        return View.ADMIN_CATEGORY_ADD;
+    }
 
 }
