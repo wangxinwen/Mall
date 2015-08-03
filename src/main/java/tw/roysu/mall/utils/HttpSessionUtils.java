@@ -21,5 +21,15 @@ public class HttpSessionUtils {
     public static void setUser(HttpSession session, User user) {
         session.setAttribute(SessionConstant.USER, user);
     }
+    
+    /**
+     * 將存在{@link HttpSession}中的{@link User}刪除
+     * 
+     * @param session
+     *        {@link HttpSession}
+     */
+    public static void removeUser(HttpSession session) {
+        session.removeAttribute(SessionConstant.USER);
+    }
 
 }

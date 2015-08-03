@@ -38,13 +38,31 @@
                 </c:if>
                 <a class="brand" href="/">購物中心</a>
                 <div class="nav-collapse collapse">
-                    <p class="navbar-text pull-right">
-                        <a href="/Login" class="navbar-link">登入</a>
-                    </p>
+                    <%-- 未登入顯示登入連結 --%>
+                    <c:if test="${empty sessionScope.validUser}">
+                        <p class="navbar-text pull-right">
+                            <a href="/Login" class="navbar-link">登入</a>
+                        </p>
+                    </c:if>
+                    
                     <%-- 管理者才顯示管理後台連接 --%>
                     <c:if test="${sessionScope.validUser.admin}">
                         <ul class="nav">
                             <li><a href="/Admin/Home">管理後台</a>
+                        </ul>
+                    </c:if>
+                    
+                    <%-- 登入後顯示會員功能下拉選單 --%>
+                    <c:if test="${!empty sessionScope.validUser}">
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                                    ${sessionScope.validUser.name}<b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/User/Logout">登出</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </c:if>
                 </div>
