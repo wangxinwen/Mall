@@ -15,6 +15,7 @@
     </div>
     <div class="span10">
         <h3>商品類別 - 新增子類別</h3>
+        <hr>
     </div>
 </body>
 
