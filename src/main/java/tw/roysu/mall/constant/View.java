@@ -36,8 +36,13 @@ public class View {
     public static final String ADMIN_CATEGORY_LIST = "admin/category/list";
 
     /**
-     * 管理後台－商品類別-新增
+     * 管理後台－商品類別-新增父類別
      */
-    public static final String ADMIN_CATEGORY_ADD = "admin/category/add";
+    public static final String ADMIN_CATEGORY_ADD_PARENT = "admin/category/addParent";
+
+    /**
+     * 管理後台－商品類別-新增子類別
+     */
+    public static final String ADMIN_CATEGORY_ADD_CHILD = "admin/category/addChild";
 
 }

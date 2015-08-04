@@ -30,11 +30,19 @@ public class AdminController {
     }
     
     /**
-     * 商品類別 - 新增頁
+     * 商品類別 - 新增父類別頁
      */
-    @RequestMapping(value = "/AddCategory", method = RequestMethod.GET)
-    public String addCategory() {
-        return View.ADMIN_CATEGORY_ADD;
+    @RequestMapping(value = "/AddParentCategory", method = RequestMethod.GET)
+    public String addParentCategory() {
+        return View.ADMIN_CATEGORY_ADD_PARENT;
+    }
+    
+    /**
+     * 商品類別 - 新增子類別頁
+     */
+    @RequestMapping(value = "/AddChildCategory", method = RequestMethod.GET)
+    public String addChildCategory() {
+        return View.ADMIN_CATEGORY_ADD_CHILD;
     }
 
 }

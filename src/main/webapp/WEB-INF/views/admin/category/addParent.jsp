@@ -14,9 +14,7 @@
         <c:import url="/WEB-INF/views/admin/sidebar.jsp" />
     </div>
     <div class="span10">
-        <h3>商品類別 - 列表</h3>
-        <a href="/Admin/AddParentCategory" class="btn btn-primary" type="button">新增父類別</a>
-        <a href="/Admin/AddChildCategory" class="btn btn-primary" type="button">新增子類別</a>
+        <h3>商品類別 - 新增父類別</h3>
     </div>
 </body>
 
