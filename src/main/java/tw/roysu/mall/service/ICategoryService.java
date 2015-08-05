@@ -1,5 +1,7 @@
 package tw.roysu.mall.service;
 
+import java.util.List;
+
 import tw.roysu.mall.entity.Category;
 
 /**
@@ -14,5 +16,12 @@ public interface ICategoryService {
      *        {@link Category}
      */
     public void create(Category category);
+    
+    /**
+     * 取得所有父類別
+     * 
+     * @return {@link List}<{@link Category}>
+     */
+    public List<Category> getAllParentCategory();
 
 }

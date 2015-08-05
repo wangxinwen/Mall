@@ -1,5 +1,7 @@
 package tw.roysu.mall.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class CategoryService implements ICategoryService {
     @Override
     public void create(Category category) {
         categoryDao.save(category);
+    }
+
+    @Override
+    public List<Category> getAllParentCategory() {
+        return categoryDao.findByParentIdEqZero();
     }
 
 }

@@ -62,8 +62,24 @@ public class AdminController {
      * 商品類別 - 新增子類別頁
      */
     @RequestMapping(value = "/AddChildCategory", method = RequestMethod.GET)
-    public String addChildCategoryPage() {
+    public String addChildCategoryPage(Model model) {
+        model.addAttribute("form", new CategoryForm());
+        model.addAttribute("parentCategoryList", categoryService.getAllParentCategory());
         return View.ADMIN_CATEGORY_ADD_CHILD;
+    }
+    
+    /**
+     * 商品類別 - 新增子類別
+     */
+    @RequestMapping(value = "/AddChildCategory", method = RequestMethod.POST)
+    public String addChildCategory(Model model, CategoryForm form) {
+        if (!form.validate()) {
+            model.addAttribute("form", form);
+            model.addAttribute("parentCategoryList", categoryService.getAllParentCategory());
+            return View.ADMIN_CATEGORY_ADD_CHILD ;
+        }
+        categoryService.create(form.toCategory());
+        return View.ADMIN_CATEGORY_LIST;
     }
 
 }
