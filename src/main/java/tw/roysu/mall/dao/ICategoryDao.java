@@ -18,5 +18,12 @@ public interface ICategoryDao extends IBaseDao<Category> {
      * @return {@link List}<{@link Category}>
      */
     public List<Category> findByParentIdEqZero();
+    
+    /**
+     * 搜尋所有類別, 根據父類別排序
+     * 
+     * @return {@link List}<{@link Category}>
+     */
+    public List<Category> findListByOrderByParentId();
 
 }

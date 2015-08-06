@@ -14,10 +14,39 @@
         <c:import url="/WEB-INF/views/admin/sidebar.jsp" />
     </div>
     <div class="span10">
-        <h3>商品類別 - 列表</h3>
-        <hr>
-        <a href="/Admin/AddParentCategory" class="btn btn-primary" type="button">新增父類別</a>
-        <a href="/Admin/AddChildCategory" class="btn btn-primary" type="button">新增子類別</a>
+        <div class="span6">
+            <h3>商品類別 - 列表</h3>
+            <hr>
+            <a href="/Admin/AddParentCategory" class="btn btn-primary" type="button">新增父類別</a>
+            <a href="/Admin/AddChildCategory" class="btn btn-primary" type="button">新增子類別</a>
+            <br><br>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>編號</th>
+                        <th>名稱</th>
+                        <th>所屬類別編號</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="category" items="${categoryList}">
+                        <tr>
+                            <td>${category.id}</td>
+                            <td>${category.name}</td>
+                            <c:choose>
+                                <c:when test="${category.parentId == 0}">
+                                    <td>已是最上層類別</td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td>${category.parentId}</td>
+                                </c:otherwise>
+                            </c:choose>
+                            
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 

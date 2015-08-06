@@ -32,7 +32,8 @@ public class AdminController {
      * 商品類別 - 列表頁
      */
     @RequestMapping(value = "/ListCategory", method = RequestMethod.GET)
-    public String listCategory() {
+    public String listCategory(Model model) {
+        model.addAttribute("categoryList", categoryService.getCategoryList());
         return View.ADMIN_CATEGORY_LIST;
     }
     
@@ -55,7 +56,7 @@ public class AdminController {
             return View.ADMIN_CATEGORY_ADD_PARENT;
         }
         categoryService.create(form.toCategory());
-        return View.ADMIN_CATEGORY_LIST;
+        return listCategory(model);
     }
     
     /**
@@ -79,7 +80,7 @@ public class AdminController {
             return View.ADMIN_CATEGORY_ADD_CHILD ;
         }
         categoryService.create(form.toCategory());
-        return View.ADMIN_CATEGORY_LIST;
+        return listCategory(model);
     }
 
 }

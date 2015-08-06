@@ -23,5 +23,12 @@ public interface ICategoryService {
      * @return {@link List}<{@link Category}>
      */
     public List<Category> getAllParentCategory();
+    
+    /**
+     * 取得類別列表
+     * 
+     * @return {@link List}<{@link Category}>
+     */
+    public List<Category> getCategoryList();
 
 }
