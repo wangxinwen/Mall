@@ -29,4 +29,9 @@ public class CategoryDao extends BaseDao<Category> implements ICategoryDao {
         return criteria.list();
     }
 
+    @Override
+    public List<Category> findListByParentId(int id) {
+        return super.findListBy("parentId", id);
+    }
+
 }

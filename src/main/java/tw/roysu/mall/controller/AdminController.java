@@ -3,12 +3,16 @@ package tw.roysu.mall.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import tw.roysu.mall.constant.View;
 import tw.roysu.mall.form.CategoryForm;
+import tw.roysu.mall.form.ProductForm;
 import tw.roysu.mall.service.ICategoryService;
+import tw.roysu.mall.service.IProductService;
 
 /**
  * 管理後台Controller
@@ -19,6 +23,9 @@ public class AdminController {
     
     @Autowired
     private ICategoryService categoryService;
+    
+    @Autowired
+    private IProductService productService;
     
     /**
      * 登入頁
@@ -95,8 +102,33 @@ public class AdminController {
      * 商品 - 新增頁
      */
     @RequestMapping(value = "/AddProduct", method = RequestMethod.GET)
-    public String addProduct() {
+    public String addProductPage(Model model) {
+        model.addAttribute("form", new ProductForm());
+        model.addAttribute("parentCategoryList", categoryService.getAllParentCategory());
         return View.ADMIN_PRODUCT_ADD;
+    }
+    
+    /**
+     * 商品 - 根據選擇的父類別回傳子類別
+     */
+    @RequestMapping(value = "/ListChildCategory/{categoryId}")
+    @ResponseBody
+    public Object listChildCategory(@PathVariable("categoryId") int categoryId) {
+        return categoryService.getChildCategoryList(categoryId);
+    }
+    
+    /**
+     * 商品 - 新增
+     */
+    @RequestMapping(value = "/AddProduct", method = RequestMethod.POST)
+    public String addProduct(Model model, ProductForm form) {
+        if (!form.validate()) {
+            model.addAttribute("form", form);
+            model.addAttribute("parentCategoryList", categoryService.getAllParentCategory());
+            return View.ADMIN_PRODUCT_ADD ;
+        }
+        productService.create(form.toProduct());
+        return listProduct();
     }
 
 }

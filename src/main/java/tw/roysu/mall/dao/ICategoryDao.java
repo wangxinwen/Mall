@@ -26,4 +26,9 @@ public interface ICategoryDao extends IBaseDao<Category> {
      */
     public List<Category> findListByOrderByParentId();
 
+    /**
+     * 根據父類別編號查詢子類別
+     */
+    public List<Category> findListByParentId(int id);
+
 }
