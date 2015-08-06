@@ -45,4 +45,14 @@ public class View {
      */
     public static final String ADMIN_CATEGORY_ADD_CHILD = "admin/category/addChild";
 
+    /**
+     * 管理後台－商品-列表
+     */
+    public static final String ADMIN_PRODUCT_LIST = "admin/product/list";
+
+    /**
+     * 管理後台－商品-新增
+     */
+    public static final String ADMIN_PRODUCT_ADD = "admin/product/add";
+
 }

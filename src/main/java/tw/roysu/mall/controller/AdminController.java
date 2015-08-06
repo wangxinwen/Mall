@@ -82,5 +82,21 @@ public class AdminController {
         categoryService.create(form.toCategory());
         return listCategory(model);
     }
+    
+    /**
+     * 商品 - 列表頁
+     */
+    @RequestMapping(value = "/ListProduct", method = RequestMethod.GET)
+    public String listProduct() {
+        return View.ADMIN_PRODUCT_LIST;
+    }
+    
+    /**
+     * 商品 - 新增頁
+     */
+    @RequestMapping(value = "/AddProduct", method = RequestMethod.GET)
+    public String addProduct() {
+        return View.ADMIN_PRODUCT_ADD;
+    }
 
 }
