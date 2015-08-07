@@ -17,6 +17,7 @@ public class ProductForm extends BaseForm {
         this.name = "";
         this.price = 0;
         this.off = 100;
+        this.detail = "";
     }
     
     /**
@@ -40,6 +41,11 @@ public class ProductForm extends BaseForm {
      * 原價為100, 八五折為85
      */
     private int off;
+    
+    /**
+     * 商品介紹
+     */
+    private String detail;
 
     /**
      * 驗證表單<br><br>
@@ -64,6 +70,10 @@ public class ProductForm extends BaseForm {
         if (this.off < 10 || this.off > 100) {
             super.addErrMsg("折扣只能介於一折(10)至未打折(100)哦！！");
         }
+        // 檢查商品介紹
+        if (StringUtils.isBlank(this.detail)) {
+            super.addErrMsg("商品介紹不能空著哦！");
+        }
         return super.validateResult();
     }
 
@@ -78,6 +88,7 @@ public class ProductForm extends BaseForm {
         product.setName(this.name);
         product.setPrice(this.price);
         product.setOff(this.off);
+        product.setDetail(this.detail);
         return product;
     }
 
@@ -111,6 +122,14 @@ public class ProductForm extends BaseForm {
 
     public void setOff(int off) {
         this.off = off;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
 }

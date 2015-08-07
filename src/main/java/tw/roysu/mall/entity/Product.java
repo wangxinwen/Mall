@@ -65,6 +65,11 @@ public class Product implements Serializable {
      * 圖片網址
      */
     private String imgUrl;
+    
+    /**
+     * 商品介紹
+     */
+    private String detail;
 
     public int getId() {
         return id;
@@ -120,6 +125,14 @@ public class Product implements Serializable {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
 }

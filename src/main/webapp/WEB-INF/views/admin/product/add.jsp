@@ -20,7 +20,7 @@
         <form:form action="/Admin/AddProduct" method="POST" modelAttribute="form">
             <div class="control-group">
                 <div class="controls">
-                    <select id="parentCategory">
+                    <select id="parentCategory" class="input-medium">
                         <option value="-1">請選擇父類別</option>
                         <c:forEach var="category" items="${parentCategoryList}">
                             <option value="${category.id}">${category.name}</option>
@@ -30,24 +30,29 @@
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <form:select path="categoryId" id="childCategory">
+                    <form:select path="categoryId" id="childCategory" class="input-medium">
                         <form:option value="-1" label="請選擇子類別" />
                     </form:select>
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <form:input class="input-medium" id="inputName" placeholder="商品名稱" path="name" />
+                    <form:input class="input-medium" placeholder="商品名稱" path="name" />
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <form:input class="input-medium" id="inputPrice" placeholder="定價" path="price" />
+                    <form:input class="input-medium" placeholder="定價" path="price" />
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <form:input class="input-medium" id="inputOff" placeholder="折扣" path="off" />
+                    <form:input class="input-medium" placeholder="折扣" path="off" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <form:textarea rows="5" class="input-xlarge" placeholder="商品介紹" path="detail" />
                 </div>
             </div>
             <div class="control-group">
