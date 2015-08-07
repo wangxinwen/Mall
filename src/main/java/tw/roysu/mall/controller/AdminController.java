@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import tw.roysu.mall.bean.PagingBean;
 import tw.roysu.mall.constant.View;
 import tw.roysu.mall.form.CategoryForm;
 import tw.roysu.mall.form.ProductForm;
 import tw.roysu.mall.service.ICategoryService;
+import tw.roysu.mall.service.IPagingService;
 import tw.roysu.mall.service.IProductService;
 
 /**
@@ -26,6 +28,9 @@ public class AdminController {
     
     @Autowired
     private IProductService productService;
+    
+    @Autowired
+    private IPagingService pagingService;
     
     /**
      * 登入頁
@@ -91,10 +96,20 @@ public class AdminController {
     }
     
     /**
-     * 商品 - 列表頁
+     * 商品 - 列表首頁
      */
     @RequestMapping(value = "/ListProduct", method = RequestMethod.GET)
-    public String listProduct() {
+    public String listProductHomePage(Model model) {
+        return listProduct(1, model);
+    }
+    
+    /**
+     * 商品 - 列表頁
+     */
+    @RequestMapping(value = "/ListProduct/{page}", method = RequestMethod.GET)
+    public String listProduct(@PathVariable("page") int page, Model model) {
+        model.addAttribute("pagingBean", pagingService.getAdminProductListBean(page));
+        model.addAttribute("productList", productService.getProductList(page));
         return View.ADMIN_PRODUCT_LIST;
     }
     
@@ -128,7 +143,7 @@ public class AdminController {
             return View.ADMIN_PRODUCT_ADD ;
         }
         productService.create(form.toProduct());
-        return listProduct();
+        return listProductHomePage(model);
     }
 
 }

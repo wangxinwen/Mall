@@ -1,5 +1,7 @@
 package tw.roysu.mall.service;
 
+import java.util.List;
+
 import tw.roysu.mall.entity.Product;
 
 /**
@@ -14,5 +16,14 @@ public interface IProductService {
      *        {@link Product}
      */
     public void create(Product product);
+    
+    /**
+     * 取得商品列表
+     * 
+     * @param page
+     *        頁數
+     * @return {@link List}<{@link Product}>
+     */
+    public List<Product> getProductList(int page);
 
 }
