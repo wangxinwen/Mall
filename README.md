@@ -5,7 +5,7 @@
 <br />
 
 ### Version
-0.2
+0.3
 
 ### Language
 * Java 8
