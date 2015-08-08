@@ -1,6 +1,7 @@
 package tw.roysu.mall.service;
 
 import java.util.List;
+import java.util.Map;
 
 import tw.roysu.mall.entity.Category;
 
@@ -35,5 +36,10 @@ public interface ICategoryService {
      * 根據父類別編號取得子類別列表
      */
     public List<Category> getChildCategoryList(int id);
+    
+    /**
+     * 取得商品類別側邊欄資料
+     */
+    public Map<Category, List<Category>> getSidebar();
 
 }

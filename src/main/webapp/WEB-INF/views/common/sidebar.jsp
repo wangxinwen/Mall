@@ -1,23 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <div class="well sidebar-nav">
     <ul class="nav nav-list">
-        <li class="nav-header">書籍
-        <li class="active"><a href="#">電腦資訊</a>
-        <li><a href="#">商業理財</a>
-        <li><a href="#">人文史地</a>
-        <li><a href="#">社會科學</a>
-        <li><a href="#">文學小說</a>
-        <li class="nav-header">電腦
-        <li><a href="#">桌上型電腦</a>
-        <li><a href="#">筆記型電腦</a>
-        <li><a href="#">平版電腦</a>
-        <li><a href="#">電腦螢幕</a>
-        <li><a href="#">喇叭</a>
-        <li><a href="#">鍵盤、滑鼠</a>
-        <li class="nav-header">汽車
-        <li><a href="#">Audi</a>
-        <li><a href="#">BMW</a>
-        <li><a href="#">TOYOTA</a>
+        <c:forEach var="categoryMap" items="${requestScope.sidebar}">
+            <%-- 父類別 --%>
+            <c:set var="parentCategory" value="${categoryMap.key}"/>
+            <%-- 子類別列表 --%>
+            <c:set var="childCategoryList" value="${categoryMap.value}"/>
+            
+            <li class="nav-header">${parentCategory.name}</li>
+            <c:forEach var="childCategory" items="${childCategoryList}">
+                <li><a href="${childCategory.id}">${childCategory.name}</a></li>
+            </c:forEach>
+        </c:forEach>
     </ul>
 </div>
