@@ -2,6 +2,8 @@ package tw.roysu.mall.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import tw.roysu.mall.entity.Product;
 
 /**
@@ -25,5 +27,15 @@ public interface IProductService {
      * @return {@link List}<{@link Product}>
      */
     public List<Product> getProductList(int page);
+
+    /**
+     * 新增商品圖片
+     * 
+     * @param productId
+     *        商品編號
+     * @param image
+     *        商品圖片
+     */
+    public void addProductImg(int productId, MultipartFile img);
 
 }

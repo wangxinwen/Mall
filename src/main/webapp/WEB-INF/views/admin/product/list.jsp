@@ -59,7 +59,11 @@
                         <td>${product.id}</td>
                         <td>${product.categoryId}</td>
                         <td>${product.name}</td>
-                        <td><a href="">內容</a></td>
+                        <td>
+                            <a href="">內容</a>
+                            /
+                            <a href="/Admin/UploadProductPhoto/${product.id}">上傳圖片</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>

@@ -55,4 +55,9 @@ public class View {
      */
     public static final String ADMIN_PRODUCT_ADD = "admin/product/add";
 
+    /**
+     * 管理後台－商品-上傳圖片
+     */
+    public static final String ADMIN_PRODUCT_UPLOAD_PHOTO = "admin/product/uploadPhoto";
+
 }

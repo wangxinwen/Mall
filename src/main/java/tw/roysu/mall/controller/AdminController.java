@@ -6,9 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
-import tw.roysu.mall.bean.PagingBean;
 import tw.roysu.mall.constant.View;
 import tw.roysu.mall.form.CategoryForm;
 import tw.roysu.mall.form.ProductForm;
@@ -143,6 +144,26 @@ public class AdminController {
             return View.ADMIN_PRODUCT_ADD ;
         }
         productService.create(form.toProduct());
+        return listProductHomePage(model);
+    }
+    
+    /**
+     * 商品 - 上傳圖片頁
+     */
+    @RequestMapping(value = "/UploadProductPhoto/{productId}", method = RequestMethod.GET)
+    public String uploadProductPhotoPage(@PathVariable("productId") int productId,
+                                         Model model) {
+        return View.ADMIN_PRODUCT_UPLOAD_PHOTO;
+    }
+    
+    /**
+     * 商品 - 上傳圖片
+     */
+    @RequestMapping(value = "/UploadProductPhoto/{productId}", method = RequestMethod.POST)
+    public String uploadProductPhoto(@PathVariable("productId") int productId,
+                                     @RequestParam("file") MultipartFile file,
+                                     Model model) {
+        productService.addProductImg(productId, file);
         return listProductHomePage(model);
     }
 
