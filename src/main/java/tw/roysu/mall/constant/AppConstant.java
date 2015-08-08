@@ -33,12 +33,17 @@ public class AppConstant {
     /**
      * 圖片URL
      */
-    public static final String IMG_URL = DOMAIN + "resources/img/";;
+    public static final String IMG_URL = DOMAIN + "resources/img/";
 
     /**
      * 商品圖片URL
      */
-    public static final String IMG_PRODUCT_URL = IMG_URL + "product/";;
+    public static final String IMG_PRODUCT_URL = IMG_URL + "product/";
+
+    /**
+     * 商品無圖片預設圖URL
+     */
+    public static final String IMG_PRODUCT_NO_IMG_URL = IMG_PRODUCT_URL + "no_image.png";
 
     /**
      * 後台商品列表每頁顯示筆數

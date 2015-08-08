@@ -2,6 +2,10 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%@ page import="tw.roysu.mall.constant.AppConstant" %>
+
+<c:set var="IMG_PRODUCT_NO_IMG_URL" value="<%=AppConstant.IMG_PRODUCT_NO_IMG_URL %>"/>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,6 +51,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th class="span3">商品圖片</th>
                     <th>商品編號</th>
                     <th>所屬類別編號</th>
                     <th>名稱</th>
@@ -56,12 +61,20 @@
             <tbody>
                 <c:forEach var="product" items="${productList}">
                     <tr>
+                        <td>
+                            <%-- 有商品圖顯示商品圖, 沒圖顯示預設無圖片的圖 --%>
+                            <c:set var="imgUrl" value="${empty product.imgUrl ? IMG_PRODUCT_NO_IMG_URL : product.imgUrl}"/>
+                            
+                            <a target="_blank" href="${imgUrl}" class="thumbnail"> 
+                                <img src="${imgUrl}" 
+                                     data-src="holder.js/160x120" 
+                                     alt="${product.name}">
+                            </a>
+                        </td>
                         <td>${product.id}</td>
                         <td>${product.categoryId}</td>
                         <td>${product.name}</td>
                         <td>
-                            <a href="">內容</a>
-                            /
                             <a href="/Admin/UploadProductPhoto/${product.id}">上傳圖片</a>
                         </td>
                     </tr>
