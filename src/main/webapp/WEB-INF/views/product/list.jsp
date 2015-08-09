@@ -27,13 +27,14 @@
             <ul class="media-list">
                 <c:forEach var="product" items="${productList}">
                     <li class="media">
-                        <a class="pull-left" href="#">
-                            <%-- 有商品圖顯示商品圖, 沒圖顯示預設無圖片的圖 --%>
-                            <c:set var="imgUrl" value="${empty product.imgUrl ? IMG_PRODUCT_NO_IMG_URL : product.imgUrl}"/>
-                            
+                        <%-- 有商品圖顯示商品圖, 沒圖顯示預設無圖片的圖 --%>
+                        <c:set var="imgUrl" value="${empty product.imgUrl ? IMG_PRODUCT_NO_IMG_URL : product.imgUrl}"/>
+                        
+                        <a target="_blank" class="pull-left" href="${imgUrl}">
                             <img src="${imgUrl}" 
                                  data-src="holder.js/64x64" 
-                                 class="media-object">
+                                 class="media-object" 
+                                 style="width: 200px; height: 150px;">
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">${product.name}</h4>
