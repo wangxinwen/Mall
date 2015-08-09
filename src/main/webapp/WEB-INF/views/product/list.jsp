@@ -37,9 +37,11 @@
                                  style="width: 200px; height: 150px;">
                         </a>
                         <div class="media-body">
-                            <a href="/Product/Detail/${product.id}">
-                                <h4 class="media-heading">${product.name}</h4>
-                            </a>
+                            <h4 class="media-heading">
+                                <a href="/Product/Detail/${product.id}">
+                                    ${product.name}
+                                </a>
+                            </h4>
                             <p>${product.detail}</p>
                         </div>
                     </li>
