@@ -4,3 +4,6 @@ target/
 .project
 .springBeans
 .DS_Store
+
+# image
+src/main/webapp/resources/img/product/
