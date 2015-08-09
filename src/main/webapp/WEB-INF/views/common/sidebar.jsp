@@ -12,7 +12,7 @@
             
             <li class="nav-header">${parentCategory.name}</li>
             <c:forEach var="childCategory" items="${childCategoryList}">
-                <li><a href="${childCategory.id}">${childCategory.name}</a></li>
+                <li><a href="/Product/List/${childCategory.id}">${childCategory.name}</a></li>
             </c:forEach>
         </c:forEach>
     </ul>

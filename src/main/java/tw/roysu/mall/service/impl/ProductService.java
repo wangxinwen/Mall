@@ -89,4 +89,9 @@ public class ProductService extends BaseService implements IProductService {
         inputStream.close();
     }
 
+    @Override
+    public List<Product> getListByCategory(int categoryId, int page) {
+        return productDao.findListByCategoryId(categoryId, getBegin(page), AppConstant.ADMIN_PRODUCT_LIST_PAGE_SIZE);
+    }
+
 }

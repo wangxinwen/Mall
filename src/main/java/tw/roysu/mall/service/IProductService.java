@@ -37,5 +37,16 @@ public interface IProductService {
      *        商品圖片
      */
     public void addProductImg(int productId, MultipartFile img);
+    
+    /**
+     * 根據選擇的商品類別取得商品列表
+     * 
+     * @param categoryId
+     *        商品類別編號
+     * @param page
+     *        頁數
+     * @return {@link List}<{@link Product}>
+     */
+    public List<Product> getListByCategory(int categoryId, int page);
 
 }

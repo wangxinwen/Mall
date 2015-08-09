@@ -50,4 +50,9 @@ public class AppConstant {
      */
     public static final int ADMIN_PRODUCT_LIST_PAGE_SIZE = 10;
 
+    /**
+     * 類別商品列表每頁顯示筆數
+     */
+    public static final int CATEGORY_PRODUCT_LIST_PAGE_SIZE = 10;
+
 }

@@ -17,7 +17,7 @@ public class PagingService implements IPagingService {
     @Override
     public PagingBean getAdminProductListBean(int page) {
         int total = productDao.count();
-        return new PagingBean(page, getPageTotal(total));
+        return new PagingBean(page, getPageTotal(total, AppConstant.ADMIN_PRODUCT_LIST_PAGE_SIZE));
     }
     
     /**
@@ -27,10 +27,18 @@ public class PagingService implements IPagingService {
      * 
      * @param total
      *        商品總數量
+     * @param pageSize
+     *        每頁數量
      * @return pageTotal
      */
-    private int getPageTotal(int total) {
-        return (total + AppConstant.ADMIN_PRODUCT_LIST_PAGE_SIZE - 1) / AppConstant.ADMIN_PRODUCT_LIST_PAGE_SIZE;
+    private int getPageTotal(int total, int pageSize) {
+        return (total + pageSize - 1) / pageSize;
+    }
+
+    @Override
+    public PagingBean getCategoryProductListBean(int categoryId, int page) {
+        int total = productDao.countByCategory(categoryId);
+        return new PagingBean(page, getPageTotal(total, AppConstant.CATEGORY_PRODUCT_LIST_PAGE_SIZE));
     }
 
 }

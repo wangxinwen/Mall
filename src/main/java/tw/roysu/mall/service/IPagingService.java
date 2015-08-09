@@ -16,5 +16,16 @@ public interface IPagingService {
      * @return {@link PagingBean}
      */
     public PagingBean getAdminProductListBean(int page);
+    
+    /**
+     * 取得所選類別商品列表分頁資料
+     * 
+     * @param categoryId
+     *        選擇類別
+     * @param page
+     *        頁數
+     * @return {@link PagingBean}
+     */
+    public PagingBean getCategoryProductListBean(int categoryId, int page);
 
 }
