@@ -21,33 +21,12 @@
         <h3>商品 - 列表</h3>
         <hr>
         <a href="/Admin/AddProduct" class="btn btn-primary" type="button">新增商品</a>
-        <div class="pagination">
-            <ul>
-                <li><a href="/Admin/ListProduct/1">最前</a></li>
-
-                <%-- 上頁 --%>
-                <c:choose>
-                    <c:when test="${pagingBean.hasPrev}">
-                        <li><a href="/Admin/ListProduct/${pagingBean.page - 1}">上頁</a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="disabled"><a>上頁</a></li>
-                    </c:otherwise>
-                </c:choose>
-
-                <%-- 下頁 --%>
-                <c:choose>
-                    <c:when test="${pagingBean.hasNext}">
-                        <li><a href="/Admin/ListProduct/${pagingBean.page + 1}">下頁</a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="disabled"><a>下頁</a></li>
-                    </c:otherwise>
-                </c:choose>
-
-                <li><a href="/Admin/ListProduct/${pagingBean.pageTotal}">最後</a></li>
-            </ul>
-        </div>
+        
+        <%-- 分頁 --%>
+        <c:import url="/WEB-INF/views/common/pagination.jsp">
+            <c:param name="linkUrl" value="/Admin/ListProduct" />
+        </c:import>
+        
         <table class="table table-bordered">
             <thead>
                 <tr>
