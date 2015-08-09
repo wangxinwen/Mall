@@ -31,6 +31,11 @@ public class View {
     public static final String PRODUCT_LIST = "product/list";
 
     /**
+     * 商品明細
+     */
+    public static final String PRODUCT_DETAIL = "product/detail";
+
+    /**
      * 管理後台－首頁
      */
     public static final String ADMIN_HOME = "admin/home";

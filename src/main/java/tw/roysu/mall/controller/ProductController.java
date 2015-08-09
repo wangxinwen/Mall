@@ -44,5 +44,15 @@ public class ProductController {
         model.addAttribute("categoryId", categoryId);
         return View.PRODUCT_LIST;
     }
+    
+    /**
+     * 商品明細
+     */
+    @RequestMapping(value = "/Detail/{productId}")
+    public String detail(@PathVariable("productId") int productId,
+                         Model model) {
+        model.addAttribute("product", productService.getProduct(productId));
+        return View.PRODUCT_DETAIL;
+    }
 
 }

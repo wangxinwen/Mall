@@ -48,5 +48,14 @@ public interface IProductService {
      * @return {@link List}<{@link Product}>
      */
     public List<Product> getListByCategory(int categoryId, int page);
+    
+    /**
+     * 取得商品明細
+     * 
+     * @param id
+     *        商品編號
+     * @return {@link Product}
+     */
+    public Product getProduct(int id);
 
 }

@@ -94,4 +94,9 @@ public class ProductService extends BaseService implements IProductService {
         return productDao.findListByCategoryId(categoryId, getBegin(page), AppConstant.ADMIN_PRODUCT_LIST_PAGE_SIZE);
     }
 
+    @Override
+    public Product getProduct(int id) {
+        return productDao.findById(id);
+    }
+
 }

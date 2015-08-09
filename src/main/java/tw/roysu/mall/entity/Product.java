@@ -70,6 +70,15 @@ public class Product implements Serializable {
      * 商品介紹
      */
     private String detail;
+    
+    /**
+     * 取得實際售價(打折後的價錢)
+     * 
+     * @return 打折後的價格
+     */
+    public int getActualPrice() {
+        return (int) Math.round(this.price * this.off / 100.0);
+    }
 
     public int getId() {
         return id;
