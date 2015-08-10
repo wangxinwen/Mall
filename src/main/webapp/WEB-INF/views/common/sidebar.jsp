@@ -12,7 +12,11 @@
             
             <li class="nav-header">${parentCategory.name}</li>
             <c:forEach var="childCategory" items="${childCategoryList}">
-                <li><a href="/Product/List/${childCategory.id}">${childCategory.name}</a></li>
+                <%-- 目前選擇類別反白提示 --%>
+                <c:set var="isSelectCategory" value="${categoryId == childCategory.id ? 'active' : ''}"/>
+                <li class="${isSelectCategory}">
+                    <a href="/Product/List/${childCategory.id}">${childCategory.name}</a>
+                </li>
             </c:forEach>
         </c:forEach>
     </ul>
