@@ -25,7 +25,7 @@
             <img src="${imgUrl}" alt="${product.name}" data-src="holder.js/360x270" >
         </a>
     </div>
-    <div class="span6">
+    <div class="span4">
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -44,7 +44,14 @@
                 </tr>
             </tbody>
         </table>
+        <a class="btn btn-primary" id="saveInCart">放入購物車</a>
     </div>
+    <div class="span2">
+        <c:import url="/WEB-INF/views/common/cart.jsp" />
+    </div>
+    
+    <input type="hidden" value="${product.id}" id="productId">
+    <script src="/resources/js/product/detail.js"></script>
 </body>
 
 </html>

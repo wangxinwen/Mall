@@ -31,5 +31,16 @@ public class HttpSessionUtils {
     public static void removeUser(HttpSession session) {
         session.removeAttribute(SessionConstant.USER);
     }
+    
+    /**
+     * 取得存在{@link HttpSession}中的{@link User}
+     * 
+     * @param session
+     *        {@link HttpSession}
+     * @return {@link User}
+     */
+    public static User getUser(HttpSession session) {
+        return (User) session.getAttribute(SessionConstant.USER);
+    }
 
 }

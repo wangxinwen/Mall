@@ -17,7 +17,7 @@
     <div class="span2">
         <c:import url="/WEB-INF/views/common/sidebar.jsp" />
     </div>
-    <div class="span10">
+    <div class="span8">
         <%-- 分頁 --%>
         <c:import url="/WEB-INF/views/common/pagination.jsp">
             <c:param name="linkUrl" value="/Product/List/${categoryId}" />
@@ -48,6 +48,9 @@
                 </c:forEach>
             </ul>
         </div>
+    </div>
+    <div class="span2">
+        <c:import url="/WEB-INF/views/common/cart.jsp" />
     </div>
 </body>
 

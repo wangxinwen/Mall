@@ -13,7 +13,7 @@
     <div class="span2">
         <c:import url="/WEB-INF/views/common/sidebar.jsp" />
     </div>
-    <div class="span10">
+    <div class="span8">
         <div class="row-fluid">
             <ul class="thumbnails">
                 <li class="span4">
@@ -112,6 +112,9 @@
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="span2">
+        <c:import url="/WEB-INF/views/common/cart.jsp" />
     </div>
 </body>
 
