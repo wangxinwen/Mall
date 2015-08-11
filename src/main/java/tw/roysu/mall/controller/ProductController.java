@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import tw.roysu.mall.constant.View;
@@ -72,7 +73,7 @@ public class ProductController {
      */
     @RequestMapping(value = "/Cart/{productId}")
     @ResponseBody
-    public Object listChildCategory(@PathVariable("productId") int productId,
+    public Object addInCart(@PathVariable("productId") int productId,
                                     HttpSession session) {
         Map<String, String> result = new HashMap<>();
         
@@ -87,6 +88,20 @@ public class ProductController {
         cartService.addProduct(user.getId(), productId);
         result.put("state", "success");
         return result;
+    }
+    
+    /**
+     * 購物車結帳
+     */
+    @RequestMapping(value = "/Cart/Checkout", method = RequestMethod.GET)
+    public String cartCheckout(HttpSession session, Model model) {
+        User user = HttpSessionUtils.getUser(session);
+        if (user == null) {
+            return View.HOME;
+        }
+
+        model.addAttribute("productList", cartService.getUserCart(user.getId()));
+        return View.ORDER_CHECK;
     }
 
 }

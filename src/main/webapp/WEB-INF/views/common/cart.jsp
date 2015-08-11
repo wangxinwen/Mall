@@ -23,7 +23,7 @@
             </c:forEach>
             <tr>
                 <td>
-                    <a class="btn btn-small btn-block btn-primary" href="">結帳</a>
+                    <a class="btn btn-small btn-block btn-primary" href="/Product/Cart/Checkout">結帳</a>
                 </td>
             </tr>
         </tbody>
