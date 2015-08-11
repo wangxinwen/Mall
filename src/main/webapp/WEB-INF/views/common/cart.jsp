@@ -2,15 +2,30 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<div class="well sidebar-nav">
-    <ul class="nav nav-list">
-        <li class="nav-header">購物車</li>
-        <c:if test="${!empty cart}">
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <div class="text-center">購物車</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
             <c:forEach var="product" items="${cart}">
-                <li>
-                    <a href="/Product/Detail/${product.id}">${product.name}</a>
-                </li>
+                <tr>
+                    <td>
+                    	<div class="text-center">
+                            <a href="/Product/Detail/${product.id}">${product.name}</a>
+                        </div>
+                    </td>
+                </tr>
             </c:forEach>
-        </c:if>
-    </ul>
+            <tr>
+                <td>
+                    <a class="btn btn-small btn-block btn-primary" href="">結帳</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
