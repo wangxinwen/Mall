@@ -54,5 +54,20 @@ public class AppConstant {
      * 類別商品列表每頁顯示筆數
      */
     public static final int CATEGORY_PRODUCT_LIST_PAGE_SIZE = 10;
+    
+    /**
+     * 付款方式：銀行匯款
+     */
+    public static final int PAYMENT_METHOD_BANK = 1;
+    
+    /**
+     * 付款方式：信用卡
+     */
+    public static final int PAYMENT_METHOD_CARD = 2;
+    
+    /**
+     * 付款方式：貨到付款
+     */
+    public static final int PAYMENT_METHOD_DELIVERY = 3;
 
 }

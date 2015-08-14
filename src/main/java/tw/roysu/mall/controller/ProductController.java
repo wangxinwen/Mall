@@ -1,6 +1,7 @@
 package tw.roysu.mall.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import tw.roysu.mall.constant.View;
+import tw.roysu.mall.entity.Product;
 import tw.roysu.mall.entity.User;
+import tw.roysu.mall.form.BuyForm;
 import tw.roysu.mall.service.ICartService;
 import tw.roysu.mall.service.IPagingService;
 import tw.roysu.mall.service.IProductService;
@@ -91,16 +94,44 @@ public class ProductController {
     }
     
     /**
-     * 購物車結帳
+     * 購物車結帳頁
      */
     @RequestMapping(value = "/Cart/Checkout", method = RequestMethod.GET)
-    public String cartCheckout(HttpSession session, Model model) {
+    public String cartCheckoutPage(HttpSession session, Model model) {
+        return cartCheckoutView(new BuyForm(), session, model);
+    }
+    
+    /**
+     * 購物車結帳
+     */
+    @RequestMapping(value = "/Cart/Checkout", method = RequestMethod.POST)
+    public String create(BuyForm form, HttpSession session, Model model) {
+        if (!form.validate()) {
+            return cartCheckoutView(form, session, model);
+        }
+        // 建立訂單
+
+        model.addAttribute("msg", "訂購成功");
+        return View.SUCCESS;
+    }
+    
+    /**
+     * 購物車結帳確認頁
+     */
+    private String cartCheckoutView(BuyForm form, HttpSession session, Model model) {
         User user = HttpSessionUtils.getUser(session);
         if (user == null) {
             return View.HOME;
         }
 
-        model.addAttribute("productList", cartService.getUserCart(user.getId()));
+        List<Product> productList = cartService.getUserCart(user.getId());
+        // 商品總額
+        int total = productList.stream()
+                               .mapToInt(product -> product.getActualPrice())
+                               .sum();
+        model.addAttribute("productList", productList);
+        model.addAttribute("total", total);
+        model.addAttribute("form", form);
         return View.ORDER_CHECK;
     }
 
