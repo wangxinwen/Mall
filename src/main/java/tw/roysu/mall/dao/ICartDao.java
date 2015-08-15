@@ -20,5 +20,13 @@ public interface ICartDao extends IBaseDao<Cart> {
      * @return {@link List}<{@link Cart}>
      */
     public List<Cart> findByUserId(int userId);
+    
+    /**
+     * 刪除該會員購物車下所有商品
+     * 
+     * @param userId
+     *        會員編號
+     */
+    public void removeByUserId(int userId);
 
 }

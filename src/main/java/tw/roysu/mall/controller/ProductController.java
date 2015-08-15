@@ -19,6 +19,7 @@ import tw.roysu.mall.entity.Product;
 import tw.roysu.mall.entity.User;
 import tw.roysu.mall.form.BuyForm;
 import tw.roysu.mall.service.ICartService;
+import tw.roysu.mall.service.IOrderService;
 import tw.roysu.mall.service.IPagingService;
 import tw.roysu.mall.service.IProductService;
 import tw.roysu.mall.utils.HttpSessionUtils;
@@ -38,6 +39,9 @@ public class ProductController {
     
     @Autowired
     private ICartService cartService;
+    
+    @Autowired
+    private IOrderService orderService;
     
     /**
      * 選擇類別的商品列表首頁
@@ -109,8 +113,26 @@ public class ProductController {
         if (!form.validate()) {
             return cartCheckoutView(form, session, model);
         }
-        // 建立訂單
 
+        User user = HttpSessionUtils.getUser(session);
+        if (user == null) {
+            return View.HOME;
+        }
+
+        // 計算商品總額
+        List<Product> productList = cartService.getUserCart(user.getId());
+        int totalPayment = productList.stream()
+                                      .mapToInt(product -> product.getActualPrice())
+                                      .sum();
+        
+        // 建立訂單
+        try {
+            orderService.createOrder(form.toOrder(user.getId(), totalPayment));
+        } catch (Exception e) {
+            form.addErrMsg("系統錯誤");
+            return cartCheckoutView(form, session, model);
+        }
+        
         model.addAttribute("msg", "訂購成功");
         return View.SUCCESS;
     }

@@ -28,5 +28,13 @@ public interface ICartService {
      *        商品編號
      */
     public void addProduct(int userId, int productId);
+    
+    /**
+     * 清空購物車
+     * 
+     * @param userId
+     *        會員編號
+     */
+    public void clearCart(int userId);
 
 }

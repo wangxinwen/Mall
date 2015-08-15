@@ -40,4 +40,9 @@ public class CartService extends BaseService implements ICartService {
         cartDao.save(cart);
     }
 
+    @Override
+    public void clearCart(int userId) {
+        cartDao.removeByUserId(userId);
+    }
+
 }
