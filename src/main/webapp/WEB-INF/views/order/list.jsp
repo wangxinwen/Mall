@@ -50,9 +50,15 @@
                             <c:if test="${order.method == PAYMENT_METHOD_DELIVERY}">貨到付款</c:if>
                         </td>
                         <td>
-                            <c:if test="${order.state == ORDER_STATE_GET}">收到訂單</c:if>
-                            <c:if test="${order.state == ORDER_STATE_HANDLE}">商品處理中</c:if>
-                            <c:if test="${order.state == ORDER_STATE_SEND}">商品已寄出</c:if>
+                            <c:if test="${order.state == ORDER_STATE_GET}">
+                                <span class="label">收到訂單</span>
+                            </c:if>
+                            <c:if test="${order.state == ORDER_STATE_HANDLE}">
+                                <span class="label label-warning">商品處理中</span>
+                            </c:if>
+                            <c:if test="${order.state == ORDER_STATE_SEND}">
+                                <span class="label label-success">商品已寄出</span>
+                            </c:if>
                         </td>
                     </tr>
                 </c:forEach>
