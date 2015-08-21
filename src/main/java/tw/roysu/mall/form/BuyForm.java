@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 import org.apache.commons.lang3.StringUtils;
 
+import tw.roysu.mall.constant.AppConstant;
 import tw.roysu.mall.entity.Order;
 
 /**
@@ -54,6 +55,7 @@ public class BuyForm extends BaseForm {
         order.setTotalPayment(totalPayment);
         order.setMethod(this.method);
         order.setAddress(this.address);
+        order.setState(AppConstant.ORDER_STATE_GET);
         order.setCreateTime(new Timestamp(System.currentTimeMillis()));
         return order;
     }

@@ -69,5 +69,20 @@ public class AppConstant {
      * 付款方式：貨到付款
      */
     public static final int PAYMENT_METHOD_DELIVERY = 3;
+    
+    /**
+     * 訂單狀態：收到訂單
+     */
+    public static final int ORDER_STATE_GET = 1;
+    
+    /**
+     * 訂單狀態：商品處理中
+     */
+    public static final int ORDER_STATE_HANDLE = 2;
+    
+    /**
+     * 訂單狀態：商品已寄出
+     */
+    public static final int ORDER_STATE_SEND = 3;
 
 }

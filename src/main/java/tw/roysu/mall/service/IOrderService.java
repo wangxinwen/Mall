@@ -1,5 +1,7 @@
 package tw.roysu.mall.service;
 
+import java.util.List;
+
 import tw.roysu.mall.entity.Order;
 
 /**
@@ -14,5 +16,13 @@ public interface IOrderService {
      *        {@link Order}
      */
     public void createOrder(Order order);
+    
+    /**
+     * 取得會員訂單列表
+     * 
+     * @param userId
+     *        會員編號
+     */
+    public List<Order> getOrderList(int userId);
 
 }

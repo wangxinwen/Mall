@@ -49,6 +49,11 @@ public class Order implements Serializable {
      * 訂單建立時間
      */
     private Timestamp createTime;
+    
+    /**
+     * 訂單狀態
+     */
+    private int state;
 
     public int getId() {
         return id;
@@ -96,6 +101,14 @@ public class Order implements Serializable {
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 
 }

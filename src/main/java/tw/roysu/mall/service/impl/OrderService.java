@@ -51,4 +51,9 @@ public class OrderService extends BaseService implements IOrderService {
         }
     }
 
+    @Override
+    public List<Order> getOrderList(int userId) {
+        return orderDao.findListByUserId(userId);
+    }
+
 }
