@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,9 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import tw.roysu.mall.constant.AppConstant;
+import tw.roysu.mall.dao.IBuyRecordDao;
 import tw.roysu.mall.dao.IProductDao;
+import tw.roysu.mall.entity.BuyRecord;
 import tw.roysu.mall.entity.Product;
 import tw.roysu.mall.service.IProductService;
 import tw.roysu.mall.utils.FileUtils;
@@ -21,6 +24,9 @@ public class ProductService extends BaseService implements IProductService {
 
     @Autowired
     private IProductDao productDao;
+    
+    @Autowired
+    private IBuyRecordDao buyRecordDao;
 
     @Override
     public void create(Product product) {
@@ -97,6 +103,15 @@ public class ProductService extends BaseService implements IProductService {
     @Override
     public Product getProduct(int id) {
         return productDao.findById(id);
+    }
+
+    @Override
+    public List<Product> getListByOrder(int orderId) {
+        List<BuyRecord> buyRecordList = buyRecordDao.findListByOrderId(orderId);
+        List<Integer> productIdList = buyRecordList.stream()
+                                                   .map(buyRecord -> buyRecord.getProductId())
+                                                   .collect(Collectors.toList());
+        return productDao.findListByProductIdList(productIdList);
     }
 
 }

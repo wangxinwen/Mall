@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import tw.roysu.mall.constant.View;
 import tw.roysu.mall.entity.User;
 import tw.roysu.mall.service.IOrderService;
+import tw.roysu.mall.service.IProductService;
 import tw.roysu.mall.utils.HttpSessionUtils;
 
 /**
@@ -23,6 +24,9 @@ public class OrderController {
     
     @Autowired
     private IOrderService orderService;
+    
+    @Autowired
+    private IProductService productService;
 
     /**
      * 訂單管理首頁
@@ -42,6 +46,16 @@ public class OrderController {
         User user = HttpSessionUtils.getUser(session);
         model.addAttribute("orderList", orderService.getOrderList(user.getId()));
         return View.ORDER_LIST;
+    }
+
+    /**
+     * 訂單明細
+     */
+    @RequestMapping(value = "/Detail/{orderId}", method = RequestMethod.GET)
+    public String detail(@PathVariable("orderId") int orderId, 
+                         Model model) {
+        model.addAttribute("productList", productService.getListByOrder(orderId));
+        return View.ORDER_DETAIL;
     }
 
 }

@@ -52,4 +52,9 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
         return Integer.valueOf(count.toString());
     }
 
+    @Override
+    public List<Product> findListByProductIdList(List<Integer> productIdList) {
+        return super.findListBy("id", productIdList);
+    }
+
 }

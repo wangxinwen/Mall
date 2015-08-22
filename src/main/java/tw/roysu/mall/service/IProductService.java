@@ -57,5 +57,14 @@ public interface IProductService {
      * @return {@link Product}
      */
     public Product getProduct(int id);
+    
+    /**
+     * 根據訂單編號取得商品列表
+     * 
+     * @param orderId
+     *        訂單編號
+     * @return {@link List}<{@link Product}>
+     */
+    public List<Product> getListByOrder(int orderId);
 
 }

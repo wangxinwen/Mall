@@ -46,6 +46,11 @@ public class View {
     public static final String ORDER_LIST = "order/list";
 
     /**
+     * 訂單明細
+     */
+    public static final String ORDER_DETAIL = "order/detail";
+
+    /**
      * 管理後台－首頁
      */
     public static final String ADMIN_HOME = "admin/home";

@@ -41,5 +41,14 @@ public interface IProductDao extends IBaseDao<Product> {
      * @return 所屬類別商品數量
      */
     public int countByCategory(int categoryId);
+    
+    /**
+     * 根據商品編號列表查詢商品
+     * 
+     * @param productIdList
+     *        商品編號列表
+     * @return {@link List}<{@link Product}>
+     */
+    public List<Product> findListByProductIdList(List<Integer> productIdList);
 
 }

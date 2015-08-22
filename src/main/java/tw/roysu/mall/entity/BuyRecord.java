@@ -13,6 +13,10 @@ import javax.persistence.Id;
 @Entity
 public class BuyRecord implements Serializable {
     
+    public BuyRecord() {
+        
+    }
+    
     /**
      * 於建構子初始化
      * 

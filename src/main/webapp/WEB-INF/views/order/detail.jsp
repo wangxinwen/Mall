@@ -18,7 +18,7 @@
 <html lang="en">
 
 <head>
-    <title>訂單管理 - 購物中心</title>
+    <title>訂單明細 - 購物中心</title>
 </head>
 
 <body>
@@ -29,36 +29,22 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>訂單編號</th>
-                    <th>訂購時間</th>
-                    <th>付款方式</th>
-                    <th>狀態</th>
+                    <th>商品編號</th>
+                    <th>名稱</th>
+                    <th>價格</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach var="order" items="${orderList}">
+                <c:forEach var="product" items="${productList}">
                     <tr>
                         <td>
-                            <a href="/Order/Detail/${order.id}">${order.id}</a>
+                            ${product.id}
                         </td>
                         <td>
-                            ${order.createTime}
+                            ${product.name}
                         </td>
                         <td>
-                            <c:if test="${order.method == PAYMENT_METHOD_BANK}">銀行匯款</c:if>
-                            <c:if test="${order.method == PAYMENT_METHOD_CARD}">信用卡匯款</c:if>
-                            <c:if test="${order.method == PAYMENT_METHOD_DELIVERY}">貨到付款</c:if>
-                        </td>
-                        <td>
-                            <c:if test="${order.state == ORDER_STATE_GET}">
-                                <span class="label">收到訂單</span>
-                            </c:if>
-                            <c:if test="${order.state == ORDER_STATE_HANDLE}">
-                                <span class="label label-warning">商品處理中</span>
-                            </c:if>
-                            <c:if test="${order.state == ORDER_STATE_SEND}">
-                                <span class="label label-success">商品已寄出</span>
-                            </c:if>
+                            ${product.actualPrice}
                         </td>
                     </tr>
                 </c:forEach>
