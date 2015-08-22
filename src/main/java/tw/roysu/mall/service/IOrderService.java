@@ -24,5 +24,13 @@ public interface IOrderService {
      *        會員編號
      */
     public List<Order> getOrderList(int userId);
+    
+    /**
+     * 取消訂單
+     * 
+     * @param orderId
+     *        訂單編號
+     */
+    public void cancelOrder(int orderId);
 
 }

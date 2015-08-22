@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
 
+import tw.roysu.mall.constant.AppConstant;
 import tw.roysu.mall.dao.IOrderDao;
 import tw.roysu.mall.entity.Order;
 import tw.roysu.mall.entity.Product;
@@ -54,6 +55,33 @@ public class OrderService extends BaseService implements IOrderService {
     @Override
     public List<Order> getOrderList(int userId) {
         return orderDao.findListByUserId(userId);
+    }
+
+    @Override
+    public void cancelOrder(int orderId) {
+        updateOrderState(orderId, AppConstant.ORDER_STATE_CANCEL);
+    }
+    
+    /**
+     * 修改訂單狀態
+     * 
+     * @param orderId
+     *        訂單編號
+     * @param state
+     *        狀態
+     */
+    private void updateOrderState(int orderId, int state) {
+        TransactionStatus status = super.getTransactionStatus();
+
+        Order order = orderDao.findById(orderId);
+        order.setState(state);
+        try {
+            orderDao.update(order);
+            super.getTransactionManager().commit(status);
+        } catch (Exception e) {
+            super.getTransactionManager().rollback(status);
+            e.printStackTrace();
+        }
     }
 
 }

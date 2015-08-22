@@ -84,5 +84,10 @@ public class AppConstant {
      * 訂單狀態：商品已寄出
      */
     public static final int ORDER_STATE_SEND = 3;
+    
+    /**
+     * 訂單狀態：訂單取消
+     */
+    public static final int ORDER_STATE_CANCEL = 4;
 
 }

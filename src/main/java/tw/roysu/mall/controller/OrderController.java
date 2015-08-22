@@ -58,4 +58,15 @@ public class OrderController {
         return View.ORDER_DETAIL;
     }
 
+    /**
+     * 取消訂單
+     */
+    @RequestMapping(value = "/Cancel/{orderId}", method = RequestMethod.GET)
+    public String cancel(@PathVariable("orderId") int orderId, 
+                         HttpSession session,
+                         Model model) {
+        orderService.cancelOrder(orderId);
+        return listHomePage(session, model);
+    }
+
 }

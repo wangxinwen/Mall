@@ -13,6 +13,7 @@
 <c:set var="ORDER_STATE_GET" value="<%=AppConstant.ORDER_STATE_GET %>"/>
 <c:set var="ORDER_STATE_HANDLE" value="<%=AppConstant.ORDER_STATE_HANDLE %>"/>
 <c:set var="ORDER_STATE_SEND" value="<%=AppConstant.ORDER_STATE_SEND %>"/>
+<c:set var="ORDER_STATE_CANCEL" value="<%=AppConstant.ORDER_STATE_CANCEL %>"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +34,7 @@
                     <th>訂購時間</th>
                     <th>付款方式</th>
                     <th>狀態</th>
+                    <th>功能</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,6 +60,14 @@
                             </c:if>
                             <c:if test="${order.state == ORDER_STATE_SEND}">
                                 <span class="label label-success">商品已寄出</span>
+                            </c:if>
+                            <c:if test="${order.state == ORDER_STATE_CANCEL}">
+                                <span class="label label-important">訂單取消</span>
+                            </c:if>
+                        </td>
+                        <td>
+                            <c:if test="${order.state == ORDER_STATE_GET || order.state == ORDER_STATE_HANDLE}">
+                                <a href="/Order/Cancel/${order.id}">取消訂單</a>
                             </c:if>
                         </td>
                     </tr>
