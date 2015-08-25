@@ -57,4 +57,14 @@ public class ProductDao extends BaseDao<Product> implements IProductDao {
         return super.findListBy("id", productIdList);
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Product> findListByImg(int size) {
+        Criteria criteria = super.getSession().createCriteria(Product.class);
+        criteria.add(Restrictions.not(Restrictions.eq("imgUrl", "")));
+        criteria.addOrder(Order.desc("id"));
+        criteria.setMaxResults(size);
+        return criteria.list();
+    }
+
 }

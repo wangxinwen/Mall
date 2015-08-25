@@ -50,5 +50,14 @@ public interface IProductDao extends IBaseDao<Product> {
      * @return {@link List}<{@link Product}>
      */
     public List<Product> findListByProductIdList(List<Integer> productIdList);
+    
+    /**
+     * 取得有商品圖片的商品列表
+     * 
+     * @param size
+     *        數量
+     * @return {@link List}<{@link Product}>
+     */
+    public List<Product> findListByImg(int size);
 
 }

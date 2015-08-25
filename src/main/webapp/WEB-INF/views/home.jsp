@@ -14,104 +14,25 @@
         <c:import url="/WEB-INF/views/common/sidebar.jsp" />
     </div>
     <div class="span8">
-        <div class="row-fluid">
-            <ul class="thumbnails">
-                <li class="span4">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="" src="/resources/img/300x200.png">
-                        <div class="caption">
-                            <h3>深入淺出 Java</h3>
-                            <p>
-                                Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Donec id elit non
-                                mi porta gravida at eget metus. Nullam
-                                id dolor id nibh ultricies vehicula ut
-                                id elit.
-                            </p>
-                        </div>
+        <c:forEach var="product" items="${productList}" varStatus="status">
+            <c:if test="${status.index % 3 == 0}">
+                <div class="row-fluid">
+                <ul class="thumbnails">
+            </c:if>
+            <li class="span4">
+                <div class="thumbnail">
+                    <img data-src="holder.js/300x200" alt="" src="${product.imgUrl}">
+                    <div class="caption">
+                        <h3>${product.name}</h3>
+                        <p>${product.detail}</p>
                     </div>
-                </li>
-                <li class="span4">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="" src="/resources/img/300x200.png">
-                        <div class="caption">
-                            <h3>深入淺出 Servlets與JSP</h3>
-                            <p>
-                                Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Donec id elit non
-                                mi porta gravida at eget metus. Nullam
-                                id dolor id nibh ultricies vehicula ut
-                                id elit.
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li class="span4">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="" src="/resources/img/300x200.png">
-                        <div class="caption">
-                            <h3>深入淺出 JavaScript</h3>
-                            <p>
-                                Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Donec id elit non
-                                mi porta gravida at eget metus. Nullam
-                                id dolor id nibh ultricies vehicula ut
-                                id elit.
-                            </p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="row-fluid">
-            <ul class="thumbnails">
-                <li class="span4">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="" src="/resources/img/300x200.png">
-                        <div class="caption">
-                            <h3>深入淺出 jQuery</h3>
-                            <p>
-                                Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Donec id elit non
-                                mi porta gravida at eget metus. Nullam
-                                id dolor id nibh ultricies vehicula ut
-                                id elit.
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li class="span4">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="" src="/resources/img/300x200.png">
-                        <div class="caption">
-                            <h3>深入淺出 設計模式</h3>
-                            <p>
-                                Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Donec id elit non
-                                mi porta gravida at eget metus. Nullam
-                                id dolor id nibh ultricies vehicula ut
-                                id elit.
-                            </p>
-                        </div>
-                    </div>
-                </li>
-                <li class="span4">
-                    <div class="thumbnail">
-                        <img data-src="holder.js/300x200" alt="" src="/resources/img/300x200.png">
-                        <div class="caption">
-                            <h3>深入淺出 SQL</h3>
-                            <p>
-                                Cras justo odio, dapibus ac facilisis
-                                in, egestas eget quam. Donec id elit non
-                                mi porta gravida at eget metus. Nullam
-                                id dolor id nibh ultricies vehicula ut
-                                id elit.
-                            </p>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </li>
+            <c:if test="${status.index % 3 == 2}">
+                </ul>
+                </div>
+            </c:if>
+        </c:forEach>
     </div>
     <div class="span2">
         <c:import url="/WEB-INF/views/common/cart.jsp" />

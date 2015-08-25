@@ -66,5 +66,14 @@ public interface IProductService {
      * @return {@link List}<{@link Product}>
      */
     public List<Product> getListByOrder(int orderId);
+    
+    /**
+     * 取得有圖片的商品
+     * 
+     * @param size
+     *        數量
+     * @return {@link List}<{@link Product}>
+     */
+    public List<Product> getListByHotAndImg(int size);
 
 }

@@ -114,4 +114,9 @@ public class ProductService extends BaseService implements IProductService {
         return productDao.findListByProductIdList(productIdList);
     }
 
+    @Override
+    public List<Product> getListByHotAndImg(int size) {
+        return productDao.findListByImg(size);
+    }
+
 }
