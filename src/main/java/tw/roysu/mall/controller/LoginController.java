@@ -2,6 +2,8 @@ package tw.roysu.mall.controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,8 @@ public class LoginController {
     @Autowired
     private IUserService userService;
 
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
     /**
      * 登入頁
      */
@@ -45,6 +49,7 @@ public class LoginController {
         try {
             User user = userService.login(form.getAccount(), form.getPassword());
             HttpSessionUtils.setUser(session, user);
+            logger.info("login user id = {}, account = {}", user.getId(), user.getAccount());
         } catch (DataCheckException e) {
             form.addErrMsg(e.getMsg());
             model.addAttribute("form", form);
