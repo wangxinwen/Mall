@@ -33,7 +33,7 @@ public class AppConstant {
     /**
      * 圖片URL
      */
-    public static final String IMG_URL = DOMAIN + "resources/img/";
+    public static final String IMG_URL = "/resources/img/";
 
     /**
      * 商品圖片URL
