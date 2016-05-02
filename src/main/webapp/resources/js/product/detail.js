@@ -11,7 +11,7 @@ var saveInCartButtonChickHandler = function() {
     
     // 新增商品至購物車
     $.ajax({
-        url : '/Product/Cart/' + productId,
+        url : '/carts/add/' + productId,
         type : 'POST',
         dataType : 'json',
         success : function(data) {

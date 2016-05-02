@@ -34,7 +34,7 @@
                 <c:forEach var="product" items="${productList}">
                     <tr>
                         <td>
-                            <a target="_blank" href="/Product/Detail/${product.id}"> 
+                            <a target="_blank" href="/products/${product.id}"> 
                                 ${product.name}
                             </a>
                         </td>
@@ -47,7 +47,7 @@
                 </tr>
             </tbody>
         </table>
-        <form:form action="/Product/Cart/Checkout" method="POST" modelAttribute="form">
+        <form:form action="/carts/checkout" method="POST" modelAttribute="form">
             付款方式：
             <form:select path="method">
                 <form:option value="-1" label="請選擇" />

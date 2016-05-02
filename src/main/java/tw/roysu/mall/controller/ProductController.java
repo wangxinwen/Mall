@@ -28,7 +28,6 @@ import tw.roysu.mall.utils.HttpSessionUtils;
  * 商品Controller
  */
 @Controller
-@RequestMapping(value = "/Product")
 public class ProductController {
     
     @Autowired
@@ -46,7 +45,7 @@ public class ProductController {
     /**
      * 選擇類別的商品列表首頁
      */
-    @RequestMapping(value = "/List/{categoryId}")
+    @RequestMapping(value = "/products/category-pages/{categoryId}")
     public String listByCategoryHomePage(@PathVariable("categoryId") int categoryId,
                                     Model model) {
         return listByCategory(categoryId, 1, model);
@@ -55,7 +54,7 @@ public class ProductController {
     /**
      * 選擇類別的商品列表
      */
-    @RequestMapping(value = "/List/{categoryId}/{page}")
+    @RequestMapping(value = "/products/category-pages/{categoryId}/{page}")
     public String listByCategory(@PathVariable("categoryId") int categoryId,
                                  @PathVariable("page") int page,
                                  Model model) {
@@ -68,7 +67,7 @@ public class ProductController {
     /**
      * 商品明細
      */
-    @RequestMapping(value = "/Detail/{productId}")
+    @RequestMapping(value = "/products/{productId}")
     public String detail(@PathVariable("productId") int productId,
                          Model model) {
         model.addAttribute("product", productService.getProduct(productId));
@@ -78,7 +77,7 @@ public class ProductController {
     /**
      * 放入購物車
      */
-    @RequestMapping(value = "/Cart/{productId}")
+    @RequestMapping(value = "/carts/add/{productId}")
     @ResponseBody
     public Object addInCart(@PathVariable("productId") int productId,
                                     HttpSession session) {
@@ -100,7 +99,7 @@ public class ProductController {
     /**
      * 購物車結帳頁
      */
-    @RequestMapping(value = "/Cart/Checkout", method = RequestMethod.GET)
+    @RequestMapping(value = "/carts/checkout", method = RequestMethod.GET)
     public String cartCheckoutPage(HttpSession session, Model model) {
         return cartCheckoutView(new BuyForm(), session, model);
     }
@@ -108,7 +107,7 @@ public class ProductController {
     /**
      * 購物車結帳
      */
-    @RequestMapping(value = "/Cart/Checkout", method = RequestMethod.POST)
+    @RequestMapping(value = "/carts/checkout", method = RequestMethod.POST)
     public String create(BuyForm form, HttpSession session, Model model) {
         if (!form.validate()) {
             return cartCheckoutView(form, session, model);

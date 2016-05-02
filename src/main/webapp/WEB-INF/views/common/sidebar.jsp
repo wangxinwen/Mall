@@ -15,7 +15,7 @@
                 <%-- 目前選擇類別反白提示 --%>
                 <c:set var="isSelectCategory" value="${categoryId == childCategory.id ? 'active' : ''}"/>
                 <li class="${isSelectCategory}">
-                    <a href="/Product/List/${childCategory.id}">${childCategory.name}</a>
+                    <a href="/products/category-pages/${childCategory.id}">${childCategory.name}</a>
                 </li>
             </c:forEach>
         </c:forEach>

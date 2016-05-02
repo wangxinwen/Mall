@@ -17,14 +17,14 @@
                     <tr>
                         <td>
                             <div class="text-center">
-                                <a href="/Product/Detail/${product.id}">${product.name}</a>
+                                <a href="/products/${product.id}">${product.name}</a>
                             </div>
                         </td>
                     </tr>
                 </c:forEach>
                 <tr>
                     <td>
-                        <a class="btn btn-small btn-block btn-primary" href="/Product/Cart/Checkout">結帳</a>
+                        <a class="btn btn-small btn-block btn-primary" href="/carts/checkout">結帳</a>
                     </td>
                 </tr>
             </c:if>

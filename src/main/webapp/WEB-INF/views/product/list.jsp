@@ -20,7 +20,7 @@
     <div class="span8">
         <%-- 分頁 --%>
         <c:import url="/WEB-INF/views/common/pagination.jsp">
-            <c:param name="linkUrl" value="/Product/List/${categoryId}" />
+            <c:param name="linkUrl" value="/products/category-pages/${categoryId}" />
         </c:import>
         
         <div class="row-fluid">
@@ -38,7 +38,7 @@
                         </a>
                         <div class="media-body">
                             <h4 class="media-heading">
-                                <a href="/Product/Detail/${product.id}">
+                                <a href="/products/${product.id}">
                                     ${product.name}
                                 </a>
                             </h4>

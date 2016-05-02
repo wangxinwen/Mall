@@ -4,7 +4,7 @@
 
 <%-- 
     使用此分頁功能, 需傳入除最後頁數的連結URL, 參數標題為「linkUrl」, 
-    例子：<c:param name="linkUrl" value="/Product/List/${categoryId}" />
+    例子：<c:param name="linkUrl" value="/products/category-pages/${categoryId}" />
     同時請求中必須有參數標題為「pagingBean」的分頁相關資料, 才可正常運作
 --%>
 
