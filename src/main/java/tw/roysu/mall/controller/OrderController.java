@@ -19,7 +19,6 @@ import tw.roysu.mall.utils.HttpSessionUtils;
  * 訂單Controller
  */
 @Controller
-@RequestMapping(value = "/Order")
 public class OrderController {
     
     @Autowired
@@ -31,7 +30,7 @@ public class OrderController {
     /**
      * 訂單管理首頁
      */
-    @RequestMapping(value = "/List", method = RequestMethod.GET)
+    @RequestMapping(value = "/orders/pages", method = RequestMethod.GET)
     public String listHomePage(HttpSession session, Model model) {
         return listPage(1, session, model);
     }
@@ -39,7 +38,7 @@ public class OrderController {
     /**
      * 訂單管理頁
      */
-    @RequestMapping(value = "/List/{page}", method = RequestMethod.GET)
+    @RequestMapping(value = "/orders/pages/{page}", method = RequestMethod.GET)
     public String listPage(@PathVariable("page") int page, 
                            HttpSession session,
                            Model model) {
@@ -51,7 +50,7 @@ public class OrderController {
     /**
      * 訂單明細
      */
-    @RequestMapping(value = "/Detail/{orderId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/orders/{orderId}", method = RequestMethod.GET)
     public String detail(@PathVariable("orderId") int orderId, 
                          Model model) {
         model.addAttribute("productList", productService.getListByOrder(orderId));
@@ -61,7 +60,7 @@ public class OrderController {
     /**
      * 取消訂單
      */
-    @RequestMapping(value = "/Cancel/{orderId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/orders/cancel/{orderId}", method = RequestMethod.GET)
     public String cancel(@PathVariable("orderId") int orderId, 
                          HttpSession session,
                          Model model) {

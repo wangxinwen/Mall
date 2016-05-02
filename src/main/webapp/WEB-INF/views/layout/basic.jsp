@@ -55,7 +55,7 @@
                     <%-- 登入後顯示會員功能下拉選單 --%>
                     <c:if test="${!empty sessionScope.validUser}">
                         <ul class="nav">
-                            <li><a href="/Order/List">訂單管理</a>
+                            <li><a href="/orders/pages">訂單管理</a>
                         </ul>
                         <ul class="nav pull-right">
                             <li class="dropdown">

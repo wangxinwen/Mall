@@ -41,7 +41,7 @@
                 <c:forEach var="order" items="${orderList}">
                     <tr>
                         <td>
-                            <a href="/Order/Detail/${order.id}">${order.id}</a>
+                            <a href="/orders/${order.id}">${order.id}</a>
                         </td>
                         <td>
                             ${order.createTime}
@@ -67,7 +67,7 @@
                         </td>
                         <td>
                             <c:if test="${order.state == ORDER_STATE_GET || order.state == ORDER_STATE_HANDLE}">
-                                <a href="/Order/Cancel/${order.id}">取消訂單</a>
+                                <a href="/orders/cancel/${order.id}">取消訂單</a>
                             </c:if>
                         </td>
                     </tr>
