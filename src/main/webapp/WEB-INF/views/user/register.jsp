@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="span6 offset3">
-                <form:form class="form-horizontal" action="/Register" method="POST" modelAttribute="form">
+                <form:form class="form-horizontal" action="/register" method="POST" modelAttribute="form">
                     <div class="control-group">
                         <label class="control-label" for="inputAccount">帳號</label>
                         <div class="controls">

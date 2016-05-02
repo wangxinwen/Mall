@@ -41,7 +41,7 @@
                     <%-- 未登入顯示登入連結 --%>
                     <c:if test="${empty sessionScope.validUser}">
                         <p class="navbar-text pull-right">
-                            <a href="/Login" class="navbar-link">登入</a>
+                            <a href="/login" class="navbar-link">登入</a>
                         </p>
                     </c:if>
                     
@@ -63,7 +63,7 @@
                                     ${sessionScope.validUser.name}<b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/User/Logout">登出</a></li>
+                                    <li><a href="/user/logout">登出</a></li>
                                 </ul>
                             </li>
                         </ul>

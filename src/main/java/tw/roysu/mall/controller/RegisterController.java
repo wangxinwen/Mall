@@ -23,7 +23,7 @@ public class RegisterController {
     /**
      * 註冊頁
      */
-    @RequestMapping(value = "/Register", method = RequestMethod.GET)
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerPage(Model model) {
         model.addAttribute("form", new RegisterForm());
         return View.REGISTER;
@@ -32,7 +32,7 @@ public class RegisterController {
     /**
      * 註冊
      */
-    @RequestMapping(value = "/Register", method = RequestMethod.POST)
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(Model model, RegisterForm form) {
         if (!form.validate()) {
             model.addAttribute("form", form);

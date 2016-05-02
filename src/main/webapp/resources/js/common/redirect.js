@@ -15,5 +15,5 @@ function redirectToHomePage() {
 
 // 導向註冊頁
 function redirectToRegisterPage() {
-    window.location = '/Register';
+    window.location = '/register';
 };

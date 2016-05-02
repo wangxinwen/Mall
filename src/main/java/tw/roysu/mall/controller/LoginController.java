@@ -31,7 +31,7 @@ public class LoginController {
     /**
      * 登入頁
      */
-    @RequestMapping(value = "/Login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
         model.addAttribute("form", new LoginForm());
         return View.LOGIN;
@@ -40,7 +40,7 @@ public class LoginController {
     /**
      * 登入
      */
-    @RequestMapping(value = "/Login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(Model model, LoginForm form, HttpSession session) {
         if (!form.validate()) {
             model.addAttribute("form", form);

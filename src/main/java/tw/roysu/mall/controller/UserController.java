@@ -14,13 +14,13 @@ import tw.roysu.mall.utils.HttpSessionUtils;
  * 會員Controller
  */
 @Controller
-@RequestMapping(value = "/User")
+@RequestMapping(value = "/user")
 public class UserController {
     
     /**
      * 登出
      */
-    @RequestMapping(value = "/Logout", method = RequestMethod.GET)
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(Model model, HttpSession session) {
         HttpSessionUtils.removeUser(session);
         model.addAttribute("msg", "登出成功");
