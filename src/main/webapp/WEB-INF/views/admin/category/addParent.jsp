@@ -17,7 +17,7 @@
     <div class="span10">
         <h3>商品類別 - 新增父類別</h3>
         <hr>
-        <form:form action="/Admin/AddParentCategory" method="POST" modelAttribute="form">
+        <form:form action="/admin/categorys/parents/create" method="POST" modelAttribute="form">
             <div class="control-group">
                 <div class="controls">
                     <form:input class="input-medium" id="inputName" placeholder="類別名稱" path="name" />

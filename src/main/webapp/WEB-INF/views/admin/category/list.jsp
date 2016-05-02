@@ -17,8 +17,8 @@
         <div class="span6">
             <h3>商品類別 - 列表</h3>
             <hr>
-            <a href="/Admin/AddParentCategory" class="btn btn-primary" type="button">新增父類別</a>
-            <a href="/Admin/AddChildCategory" class="btn btn-primary" type="button">新增子類別</a>
+            <a href="/admin/categorys/parents/create" class="btn btn-primary" type="button">新增父類別</a>
+            <a href="/admin/categorys/childs/create" class="btn btn-primary" type="button">新增子類別</a>
             <br><br>
             <table class="table table-bordered">
                 <thead>

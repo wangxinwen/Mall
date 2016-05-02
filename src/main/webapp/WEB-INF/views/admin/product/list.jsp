@@ -20,11 +20,11 @@
     <div class="span10">
         <h3>商品 - 列表</h3>
         <hr>
-        <a href="/Admin/AddProduct" class="btn btn-primary" type="button">新增商品</a>
+        <a href="/admin/products/create" class="btn btn-primary" type="button">新增商品</a>
         
         <%-- 分頁 --%>
         <c:import url="/WEB-INF/views/common/pagination.jsp">
-            <c:param name="linkUrl" value="/Admin/ListProduct" />
+            <c:param name="linkUrl" value="/admin/product-pages" />
         </c:import>
         
         <table class="table table-bordered">
@@ -54,7 +54,7 @@
                         <td>${product.categoryId}</td>
                         <td>${product.name}</td>
                         <td>
-                            <a href="/Admin/UploadProductPhoto/${product.id}">上傳圖片</a>
+                            <a href="/admin/products/upload-photo/${product.id}">上傳圖片</a>
                         </td>
                     </tr>
                 </c:forEach>

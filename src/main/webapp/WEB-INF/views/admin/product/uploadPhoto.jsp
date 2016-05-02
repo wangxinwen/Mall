@@ -16,7 +16,7 @@
     <div class="span10">
         <h3>商品 - 上傳圖片</h3>
         <hr>
-        <form action="/Admin/UploadProductPhoto/${productId}" method="POST" enctype="multipart/form-data">
+        <form action="/admin/products/upload-photo/${productId}" method="POST" enctype="multipart/form-data">
             <div class="control-group">
                 <div class="controls">
                     <input type="file" name="file">

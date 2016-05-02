@@ -21,7 +21,7 @@ import tw.roysu.mall.service.IProductService;
  * 管理後台Controller
  */
 @Controller
-@RequestMapping(value = "/Admin")
+@RequestMapping(value = "/admin")
 public class AdminController {
     
     @Autowired
@@ -36,7 +36,7 @@ public class AdminController {
     /**
      * 登入頁
      */
-    @RequestMapping(value = "/Home", method = RequestMethod.GET)
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home() {
         return View.ADMIN_HOME;
     }
@@ -44,7 +44,7 @@ public class AdminController {
     /**
      * 商品類別 - 列表頁
      */
-    @RequestMapping(value = "/ListCategory", method = RequestMethod.GET)
+    @RequestMapping(value = "/categorys", method = RequestMethod.GET)
     public String listCategory(Model model) {
         model.addAttribute("categoryList", categoryService.getCategoryList());
         return View.ADMIN_CATEGORY_LIST;
@@ -53,7 +53,7 @@ public class AdminController {
     /**
      * 商品類別 - 新增父類別頁
      */
-    @RequestMapping(value = "/AddParentCategory", method = RequestMethod.GET)
+    @RequestMapping(value = "/categorys/parents/create", method = RequestMethod.GET)
     public String addParentCategoryPage(Model model) {
         model.addAttribute("form", new CategoryForm());
         return View.ADMIN_CATEGORY_ADD_PARENT;
@@ -62,7 +62,7 @@ public class AdminController {
     /**
      * 商品類別 - 新增父類別
      */
-    @RequestMapping(value = "/AddParentCategory", method = RequestMethod.POST)
+    @RequestMapping(value = "/categorys/parents/create", method = RequestMethod.POST)
     public String addParentCategory(Model model, CategoryForm form) {
         if (!form.validate()) {
             model.addAttribute("form", form);
@@ -73,9 +73,18 @@ public class AdminController {
     }
     
     /**
+     * 商品類別 - 根據選擇的父類別回傳子類別
+     */
+    @RequestMapping(value = "/categorys/parents/{categoryId}")
+    @ResponseBody
+    public Object listChildCategory(@PathVariable("categoryId") int categoryId) {
+        return categoryService.getChildCategoryList(categoryId);
+    }
+    
+    /**
      * 商品類別 - 新增子類別頁
      */
-    @RequestMapping(value = "/AddChildCategory", method = RequestMethod.GET)
+    @RequestMapping(value = "/categorys/childs/create", method = RequestMethod.GET)
     public String addChildCategoryPage(Model model) {
         model.addAttribute("form", new CategoryForm());
         model.addAttribute("parentCategoryList", categoryService.getAllParentCategory());
@@ -85,7 +94,7 @@ public class AdminController {
     /**
      * 商品類別 - 新增子類別
      */
-    @RequestMapping(value = "/AddChildCategory", method = RequestMethod.POST)
+    @RequestMapping(value = "/categorys/childs/create", method = RequestMethod.POST)
     public String addChildCategory(Model model, CategoryForm form) {
         if (!form.validate()) {
             model.addAttribute("form", form);
@@ -99,7 +108,7 @@ public class AdminController {
     /**
      * 商品 - 列表首頁
      */
-    @RequestMapping(value = "/ListProduct", method = RequestMethod.GET)
+    @RequestMapping(value = "/product-pages", method = RequestMethod.GET)
     public String listProductHomePage(Model model) {
         return listProduct(1, model);
     }
@@ -107,7 +116,7 @@ public class AdminController {
     /**
      * 商品 - 列表頁
      */
-    @RequestMapping(value = "/ListProduct/{page}", method = RequestMethod.GET)
+    @RequestMapping(value = "/product-pages/{page}", method = RequestMethod.GET)
     public String listProduct(@PathVariable("page") int page, Model model) {
         model.addAttribute("pagingBean", pagingService.getAdminProductListBean(page));
         model.addAttribute("productList", productService.getProductList(page));
@@ -117,7 +126,7 @@ public class AdminController {
     /**
      * 商品 - 新增頁
      */
-    @RequestMapping(value = "/AddProduct", method = RequestMethod.GET)
+    @RequestMapping(value = "/products/create", method = RequestMethod.GET)
     public String addProductPage(Model model) {
         model.addAttribute("form", new ProductForm());
         model.addAttribute("parentCategoryList", categoryService.getAllParentCategory());
@@ -125,18 +134,9 @@ public class AdminController {
     }
     
     /**
-     * 商品 - 根據選擇的父類別回傳子類別
-     */
-    @RequestMapping(value = "/ListChildCategory/{categoryId}")
-    @ResponseBody
-    public Object listChildCategory(@PathVariable("categoryId") int categoryId) {
-        return categoryService.getChildCategoryList(categoryId);
-    }
-    
-    /**
      * 商品 - 新增
      */
-    @RequestMapping(value = "/AddProduct", method = RequestMethod.POST)
+    @RequestMapping(value = "/products/create", method = RequestMethod.POST)
     public String addProduct(Model model, ProductForm form) {
         if (!form.validate()) {
             model.addAttribute("form", form);
@@ -150,7 +150,7 @@ public class AdminController {
     /**
      * 商品 - 上傳圖片頁
      */
-    @RequestMapping(value = "/UploadProductPhoto/{productId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/products/upload-photo/{productId}", method = RequestMethod.GET)
     public String uploadProductPhotoPage(@PathVariable("productId") int productId,
                                          Model model) {
         return View.ADMIN_PRODUCT_UPLOAD_PHOTO;
@@ -159,7 +159,7 @@ public class AdminController {
     /**
      * 商品 - 上傳圖片
      */
-    @RequestMapping(value = "/UploadProductPhoto/{productId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/products/upload-photo/{productId}", method = RequestMethod.POST)
     public String uploadProductPhoto(@PathVariable("productId") int productId,
                                      @RequestParam("file") MultipartFile file,
                                      Model model) {

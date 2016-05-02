@@ -48,7 +48,7 @@
                     <%-- 管理者才顯示管理後台連接 --%>
                     <c:if test="${sessionScope.validUser.admin}">
                         <ul class="nav">
-                            <li><a href="/Admin/Home">管理後台</a>
+                            <li><a href="/admin/home">管理後台</a>
                         </ul>
                     </c:if>
                     

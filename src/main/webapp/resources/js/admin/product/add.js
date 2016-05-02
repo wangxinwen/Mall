@@ -20,7 +20,7 @@ var parentCategoryChangeHandler = function() {
     
     // 使用ajax, 根據父類別取得子類別
     $.ajax({
-        url : '/Admin/ListChildCategory/' + parentCategory,
+        url : '/admin/categorys/parents/' + parentCategory,
         type : 'POST',
         dataType : 'json',
         success : function(data) {

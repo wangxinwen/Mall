@@ -17,7 +17,7 @@
     <div class="span10">
         <h3>商品類別 - 新增子類別</h3>
         <hr>
-        <form:form action="/Admin/AddChildCategory" method="POST" modelAttribute="form">
+        <form:form action="/admin/categorys/childs/create" method="POST" modelAttribute="form">
             <div class="control-group">
                 <div class="controls">
                     <form:select path="parentId">

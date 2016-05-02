@@ -17,7 +17,7 @@
     <div class="span10">
         <h3>商品 - 新增</h3>
         <hr>
-        <form:form action="/Admin/AddProduct" method="POST" modelAttribute="form">
+        <form:form action="/admin/products/create" method="POST" modelAttribute="form">
             <div class="control-group">
                 <div class="controls">
                     <select id="parentCategory" class="input-medium">
